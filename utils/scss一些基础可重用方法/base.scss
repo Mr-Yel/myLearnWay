@@ -1,0 +1,104 @@
+p,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+
+// 弹性盒水平垂直居中
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// 设置字体颜色和背景色
+// 参数为文本颜色 背景颜色
+@mixin textBgColor($textColor, $bgColor) {
+    color: $textColor;
+    background-color: $bgColor;
+}
+
+// 设置图片大小和圆角
+// 参数为 图片宽 高 圆角尺寸
+@mixin img($imgW, $imgH, $imgR) {
+    width: $imgW;
+    height: $imgH;
+    border-radius: $imgR;
+}
+
+//去除ul默认样式
+@mixin no-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        list-style-image: none;
+        list-style-type: none;
+    }
+}
+
+/*
+* 文字自动换行，字母强制截断
+* input {number} 需要的行数
+*/
+@mixin textBreak($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    display: -moz-box;
+    -moz-line-clamp: $line;
+    -moz-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+}
+
+// 向左的空心箭头
+// 参数为 箭头宽度 颜色 移入颜色
+@mixin leftIcon($iconW, $color ,$hoverColor) {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-width: $iconW;
+    border-style: solid;
+    border-color: transparent $color transparent transparent;
+    cursor: pointer;
+    &::before {
+        content: "";
+        width: $iconW;
+        height: $iconW;
+        background: #fff;
+        position: absolute;
+        top: -$iconW/2;
+        left: $iconW/2;
+        transform: rotate(-45deg);
+    }
+   &:hover {
+        border-color: transparent $hoverColor transparent transparent;
+    }
+}
+
+// 向右的空心箭头
+// 参数为 箭头宽度 颜色 移入颜色
+@mixin rightIcon($iconW, $color ,$hoverColor){
+    position: relative;
+    width: 0;
+    height: 0;
+    border-width: $iconW;
+    border-style: solid;
+    border-color: transparent transparent transparent $color ;
+    cursor: pointer;
+    &::before {
+        content: "";
+        width: $iconW;
+        height: $iconW;
+        background: rgb(255, 255, 255);
+        position: absolute;
+        top: -$iconW/2;
+        left: -$iconW*1.5;
+        transform: rotate(-45deg);
+    }
+    &:hover {
+        border-color: transparent transparent transparent $hoverColor;
+    }
+}
