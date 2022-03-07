@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    const iterator = function (obj) {
+      let current = 0;
+
+      const next = () => (current += 1);
+
+      const isDone = () => current >= obj.length;
+
+      const getCurrItem = () => {
+        return obj[current];
+      };
+
+      const getCurrIndex = () => {
+        return current;
+      };
+
+      return {
+        next,
+        isDone,
+        getCurrItem,
+        getCurrIndex,
+        length: obj.length,
+      };
+    };
+
+    let container = iterator(["a", "b", "c"]);
+
+    console.log(container.length);
+    while (!container.isDone()) {
+      console.log(container.getCurrItem(), container.getCurrIndex());
+      container.next();
+    }
+  </script>
+  <body></body>
+</html>

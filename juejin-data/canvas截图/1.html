@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>上传视频，进行预览，截取图片，并且获取时长</title>
+  </head>
+  <style>
+    iframe{
+      width: 400px;
+      height: 600px;
+    }
+    body {
+      display: flex;
+    }
+    #image {
+      margin: 23px 10px 0 10px;
+    }
+  </style>
+  <body>
+    <canvas id="iframe">
+    </canvas>
+    <iframe id="iframe" src="https://eftcdn.exexm.com/note/iframe.html" frameborder="0"></iframe>
+    <div >
+      <video
+        style="display: none"
+        controls="controls"
+        id="aa"
+        oncanplaythrough="myFunction(this)"
+      ></video>
+      <input type="file" onchange="changFile(this)" />
+      <div id="showVideo"></div>
+    </div>
+    <div>
+      <img id="image" />
+    </div>
+    <div>
+      <button onclick="aaa()">点击截图</button><br />
+      <canvas id="canvas_"></canvas>
+    </div>
+
+    <script>
+       function aaa() {
+        var iframe = document.getElementById("iframe");
+        var canvas_ = document.getElementById("canvas_");
+        var ctx_ = canvas_.getContext("2d");
+        const ratio = window.devicePixelRatio || 1;
+        ctx_.scale(ratio, ratio);
+        canvas_.width = iframe.offsetWidth * ratio;
+        canvas_.height = iframe.offsetHeight * ratio;
+        console.log(iframe.clientHeight, iframe.clientWidth);
+        ctx_.drawImage(iframe, 0, 0, canvas_.width, canvas_.height);
+        var img = document.getElementById("image");
+        console.log(canvas_.toDataURL("image/jpg"));
+        img.src = canvas_.toDataURL("image/jpg");
+      }
+      function myFunction(ele) {
+        //<span style="white-space:pre">    </span>console.log(Math.floor(ele.duration));
+      }
+      function changFile(ele) {
+        var videoFile = ele.files[0];
+        var url = URL.createObjectURL(videoFile);
+        console.log(url);
+        var showVideo = document.getElementById("showVideo");
+        var htmls =
+          ' <video width="400px" id="video" height="auto" autoplay="autoplay" controls > <source src="' +
+          url +
+          '">您的浏览器不支持 HTML5 video 元素。</video>';
+        showVideo.innerHTML = htmls;
+        //添加监听事件
+        //当当前帧的数据已加载，但没有足够的数据来播放指定音频/视频的下一帧时，会发生 loadeddata 事件。
+        // document
+        //   .getElementById("video")
+        //   .addEventListener("loadeddata", captureImage);
+      }
+      function captureImage() {
+        var video = document.getElementById("video");
+        //播放，
+        video.play();
+        //暂停
+        //        video.pause();
+        var scale = 0.8; //质量比例
+        var canvas = document.createElement("canvas");
+        //计算视频宽高比
+        var proportion = video.clientHeight / video.clientWidth;
+        //计算当前窗口的宽度
+        var w = document.body.clientWidth;
+        var h = w * proportion;
+        canvas.getContext("2d").drawImage(video, 0, 0, w, h);
+        var img = document.getElementById("image");
+        var len = canvas.toDataURL("image/jpg");
+        len = len.length / 100;
+        //        alert("len:" + len);
+        img.src = canvas.toDataURL("image/jpg");
+      }
+      function manualCapture() {
+        var video_ = document.getElementById("video");
+        var canvas_ = document.getElementById("canvas_");
+        var ctx_ = canvas_.getContext("2d");
+        const ratio = window.devicePixelRatio || 1;
+        ctx_.scale(ratio, ratio);
+        canvas_.width = video_.offsetWidth * ratio;
+        canvas_.height = video_.offsetHeight * ratio;
+        console.log(video_.clientHeight, video_.clientWidth);
+        ctx_.drawImage(video_, 0, 0, canvas_.width, canvas_.height);
+        var img = document.getElementById("image");
+        console.log(canvas_.toDataURL("image/jpg"));
+        img.src = canvas_.toDataURL("image/jpg");
+      }
+    </script>
+  </body>
+</html>

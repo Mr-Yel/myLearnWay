@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function toNodeTree(nodeList){
+    let newNodeList = []
+    
+
+    pushNode = (i,l,lnode) => {
+        if(l == 0){
+            if(!newNodeList[l].childrens){
+                newNodeList[l].childrens = []
+            }
+            newNodeList[l].childrens.push(nodeList[i])
+            return
+        }
+        console.log(i,l);
+        if(nodeList[i].level > nodeList[l].level){
+            console.log(i,l);
+            if(!lnode.childrens){
+                lnode.childrens = []
+            }
+            lnode.childrens.push(nodeList[i])
+            return
+        }else{
+            pushNode(i,l-1,)
+        }
+    }
+    for(let i in nodeList){
+        if(i==0){
+            newNodeList.push(nodeList[0])
+            continue
+        }
+        pushNode(i,i-1,node)
+    }
+
+    return newNodeList
+}
+
+console.log(toNodeTree([
+{
+    level:1
+},
+{
+    level:3
+},
+{
+    level:2
+},
+{
+    level:4
+},
+{
+    level:1
+},
+]));
+</script>
+</html>
