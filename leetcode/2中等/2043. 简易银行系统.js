@@ -1,8 +1,53 @@
-class Back(){
-    cur
+class Bank {
+  constructor(balance) {
+    this.balance = balance;
+  }
+
+  /**
+   * @param {number} account1
+   * @param {number} account2
+   * @param {number} money
+   * @return {boolean}
+   */
+  transfer(account1, account2, money) {
+    if (
+      account1 <= this.balance.length &&
+      account2 <= this.balance.length &&
+      this.balance[account1 - 1] >= money
+    ) {
+      this.balance[account1 - 1] -= money;
+      this.balance[account2 - 1] += money;
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * @param {number} account
+   * @param {number} money
+   * @return {boolean}
+   */
+  deposit(account, money) {
+    if (account <= this.balance.length) {
+      this.balance[account - 1] += money;
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * @param {number} account
+   * @param {number} money
+   * @return {boolean}
+   */
+  withdraw(account, money) {
+    if (account <= this.balance.length && this.balance[account - 1] >= money) {
+      this.balance[account - 1] -= money;
+      return true;
+    }
+    return false;
+  }
 }
-
-
 
 // 2043. 简易银行系统
 // 你的任务是为一个很受欢迎的银行设计一款程序，以自动化执行所有传入的交易（转账，存款和取款）。银行共有 n 个账户，编号从 1 到 n 。每个账号的初始余额存储在一个下标从 0 开始的整数数组 balance 中，其中第 (i + 1) 个账户的初始余额是 balance[i] 。
@@ -17,7 +62,10 @@ class Back(){
 // boolean transfer(int account1, int account2, long money) 从编号为 account1 的账户向编号为 account2 的账户转帐 money 美元。如果交易成功，返回 true ，否则，返回 false 。
 // boolean deposit(int account, long money) 向编号为 account 的账户存款 money 美元。如果交易成功，返回 true ；否则，返回 false 。
 // boolean withdraw(int account, long money) 从编号为 account 的账户取款 money 美元。如果交易成功，返回 true ；否则，返回 false 。
+<<<<<<< HEAD
  
+=======
+>>>>>>> 4019c51bd47482ad8dd48dbec2956fe7d57832d3
 
 // 示例：
 
@@ -38,11 +86,18 @@ class Back(){
 // bank.transfer(3, 4, 15); // 返回 false ，账户 3 的当前余额是 $10 。
 //                          // 所以无法转账 $15 。
 // bank.withdraw(10, 50);   // 返回 false ，交易无效，因为账户 10 并不存在。
+<<<<<<< HEAD
  
+=======
+>>>>>>> 4019c51bd47482ad8dd48dbec2956fe7d57832d3
 
 // 提示：
 
 // n == balance.length
 // 1 <= n, account, account1, account2 <= 105
 // 0 <= balance[i], money <= 1012
+<<<<<<< HEAD
 // transfer, deposit, withdraw 三个函数，每个 最多调用 104 次
+=======
+// transfer, deposit, withdraw 三个函数，每个 最多调用 104 次
+>>>>>>> 4019c51bd47482ad8dd48dbec2956fe7d57832d3
