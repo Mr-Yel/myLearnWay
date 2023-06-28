@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>display</title>
+  </head>
+
+  <body>
+    <style>
+      section {
+        width: 90%;
+        height: 200px;
+        background-color: wheat;
+      }
+      .imgBox {
+        background: red;
+        /* width: 200px; */
+        /* background-color: burlywood; */
+        /* display: inline-block; */
+        /* display: none; */
+        font-size: 0;
+        /* display: flex; */
+      }
+      img {
+      }
+      .img {
+        width: 200px;
+        height: 200px;
+        background: url("https://www.baidu.com/img/flexible/logo/pc/result.png");
+      }
+      .div {
+        height: 200px;
+        width: 200px;
+        font-size: 24px;
+        display: inline-flex;
+        background: rgb(253, 171, 171);
+      }
+      .div1{
+        width: 100px;
+        height: 100px;
+        background: violet;
+      }
+    </style>
+    <div class="imgBox">
+      <div class="div">
+        <div class="div1"></div>
+        <div class="div1"></div>
+      </div>
+      <div class="div">11111111</div>
+      <div class="div">111111</div>
+      <div class="div">111</div>
+      <!-- <div class="img" style="display: none"></div>
+      <div class="img"></div> -->
+      <!-- <img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt=""> -->
+    </div>
+    <!-- <button class="button">点击后显示图片</button> -->
+    <script>
+      // let img = document.querySelector(".img");
+      // let imgBox = document.querySelector(".imgBox");
+      // let button = document.querySelector(".button");
+      
+      let add = (a,b)=>a+b
+      let a = '1'
+      let b = '2'
+      console.log(add(a,b));
+      
+      // button.addEventListener("click", () => {
+      //   imgBox.style.display = "block";
+      //   img.style.display = "block";
+      // });
+    </script>
+    <!-- <section>
+        
+      <div class="a1"></div>
+      <div class="a2"></div>
+      <div class="a3"></div>
+      <div class="a4"></div>
+    </section> -->
+  </body>
+</html>

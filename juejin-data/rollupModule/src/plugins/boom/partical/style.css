@@ -1,0 +1,89 @@
+.Boom-Partical_Holder, .combo-effect-container {
+    position: absolute;
+    margin:auto;
+}
+.combo-effect-container {
+    text-align: center;
+    white-space: nowrap;
+    margin-top: -4em;
+    /*margin-left: -50%;*/
+    /*width: 100%;*/
+    transition: transform 100ms linear;
+    /*opacity: 0;*/
+    -webkit-transform:scale3d(0,0,0);
+}
+.emoji-boom {
+    background: url("sprite_emoji.png");
+    background-size: 7em 1em;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+}
+
+.combo-effect-animation {
+    /*opacity: 1;*/
+    -webkit-transform: scale3d(1,1,1);
+}
+
+
+
+[class^="combo-effect-text-"] {
+    display: inline-block;
+    background: url("sprite_combo.png");
+    background-size: 16em 3.5em;
+    height: 1.75em;
+}
+.combo-effect-text-cool {
+    width: 3.35em;
+    background-position: 0 -1.75em;
+}
+.combo-effect-text-great {
+    width: 4.1em;
+    background-position: -3.35em -1.75em;
+}
+.combo-effect-text-perfect {
+    width: 5.25em;
+    background-position: -7.45em -1.75em;
+}
+
+[class^="combo-effect-number-"] {
+    display: inline-block;
+    background: url("sprite_combo.png");
+    background-size: 16em 3.5em;
+    width: 0.75em;
+    height: 1.75em;
+}
+.combo-effect-number-0 {
+    background-position: 0 0;
+}
+.combo-effect-number-1 {
+    background-position: -0.75em 0;
+}
+.combo-effect-number-2 {
+    background-position: -1.5em 0;
+}
+.combo-effect-number-3 {
+    background-position: -2.25em 0;
+}
+.combo-effect-number-4 {
+    background-position: -3em 0;
+}
+.combo-effect-number-5 {
+    background-position: -3.75em 0;
+}
+.combo-effect-number-6 {
+    background-position: -4.5em 0;
+}
+.combo-effect-number-7 {
+    background-position: -5.25em 0;
+}
+.combo-effect-number-8 {
+    background-position: -6em 0;
+}
+.combo-effect-number-9 {
+    background-position: -6.75em 0;
+}
+.combo-effect-number-x {
+    background-position: -7.5em 0;
+}
